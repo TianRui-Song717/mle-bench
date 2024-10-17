@@ -9,5 +9,5 @@ opendevin:
     max_steps: 500
     shm_size: "100G"
   env_vars:
-    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    OPENAI_API_KEY: sssssssssssssss # ${{ secrets.OPENAI_API_KEY }}
   privileged: true

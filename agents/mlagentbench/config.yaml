@@ -7,15 +7,16 @@ mlagentbench:
   dockerfile: mlagentbench/Dockerfile
   kwargs_type: argparse
   kwargs: # Args for MLAgentBench.runner
-    llm-name: gpt-4o-2024-08-06
-    edit-script-llm-name: gpt-4o-2024-08-06
-    fast-llm-name: gpt-4o-2024-08-06
+    llm-name: gpt-3.5-turbo-16k
+    agent-type: ResearchAgent
+    edit-script-llm-name: gpt-3.5-turbo-16k
+    fast-llm-name: gpt-3.5-turbo-16k
     max-steps: *step_count
     agent-max-steps: *step_count # Some MLAB agents have their own max-steps which is separate from the env max-steps; for ResearchAgent, these should be the same
     max-time: *time_limit
     max-retries: 10 # retry if the agent doesn't give a valid action response
     max-tokens: 16384 # max output tokens for gpt-4o-2024-08-06
   env_vars:
-    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    OPENAI_API_KEY: ssssssssss # ${{ secrets.OPENAI_API_KEY }}
     TIME_LIMIT_SECS: *time_limit
     STEP_LIMIT: *step_count

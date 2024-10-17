@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="USAIL35 MLEBENCH" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="songtianrui@10.120.16.35:22 password (5)" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="USAIL35 MLEBENCH">
         <serverdata>
           <mappings>
-            <mapping deploy="/projects/mle-bench" local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
@@ -55,6 +55,13 @@
         <serverdata>
           <mappings>
             <mapping deploy="/home/songtianrui/projects/mle-bench" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="songtianrui@10.120.16.35:22 password (6)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

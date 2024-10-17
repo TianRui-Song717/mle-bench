@@ -25,22 +25,33 @@ RUN apt-get update && apt-get install -y \
     sudo \
     ffmpeg \
     libsm6 \
-    libxext6 \
-    && pip install jupyter \
-    && rm -rf /var/lib/apt/lists/* # removes cache
+    libxext6
+#    && pip install jupyter \
+#    && rm -rf /var/lib/apt/lists/* # removes cache
 
-RUN pip config set global.index-url http://mirrors.aliyun.com/pypi/simple # convert the pip mirror
-RUN pip config set install.trusted-host mirrors.aliyun.com
+#RUN pip config set global.index-url http://mirrors.aliyun.com/pypi/simple # convert the pip mirror
+#RUN pip config set install.trusted-host mirrors.aliyun.com
+
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple # convert the pip mirror
+RUN pip config set install.trusted-host pypi.tuna.tsinghua.edu.cn
+
+RUN pip install jupyter && rm -rf /var/lib/apt/lists/* # removes cache
+
+#RUN pip install virtualenv \
+#    && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh \
+#    && bash /tmp/miniconda.sh -b -p /opt/conda \
+#    && rm /tmp/miniconda.sh \
+#    && /opt/conda/bin/conda init
 
 RUN pip install virtualenv \
-    && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh \
+    && wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh \
     && bash /tmp/miniconda.sh -b -p /opt/conda \
     && rm /tmp/miniconda.sh \
     && /opt/conda/bin/conda init
 
-RUN conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ # convert the conda mirror
-RUN conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-RUN conda config --set show_channel_urls yes
+RUN /opt/conda/bin/conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ # convert the conda mirror
+RUN /opt/conda/bin/conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+RUN /opt/conda/bin/conda config --set show_channel_urls yes
 
 ARG CONDA_ENV_NAME=agent
 ARG PYTHON_VERSION=3.11
